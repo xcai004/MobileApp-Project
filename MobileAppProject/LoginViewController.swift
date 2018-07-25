@@ -4,6 +4,8 @@ import Foundation
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    
     @IBOutlet weak var LoginButton: UIButton!
     @IBOutlet weak var SignupButton: UIButton!
     @IBOutlet weak var GuestButton: UIButton!
@@ -12,8 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     
     
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,13 +31,15 @@ class LoginViewController: UIViewController {
     }
     @IBAction func LoginPressed(_ sender: Any) {
         //
+        print("Tapped")
         
     }
     @IBAction func SignupPressed(_ sender: Any) {
         //
-        
+        print("Tapped")
     }
     @IBAction func GuestPressed(_ sender: Any) {
+        print("Tapped")
     }
     
     

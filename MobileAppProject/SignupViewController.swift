@@ -28,6 +28,7 @@ class SignupViewController: UIViewController {
     }
     @IBAction func SignupPressed(_ sender: Any) {
         //
+        print("Tapped")
         
     }
 
