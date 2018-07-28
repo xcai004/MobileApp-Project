@@ -130,7 +130,7 @@
             </objects>
             <point key="canvasLocation" x="290" y="1008"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Shirts-->
         <scene sceneID="PHw-dt-Bg5">
             <objects>
                 <viewController id="xt3-Gv-TLN" customClass="collectionViewController" customModule="MobileAppProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -189,6 +189,14 @@
                             <constraint firstAttribute="trailing" secondItem="gFF-ge-feJ" secondAttribute="trailing" id="tJ0-av-qah"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Shirts" id="LSe-xu-yC4">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="ilA-1F-p6a"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cart" id="8dt-gp-vA0">
+                            <connections>
+                                <segue destination="jOL-I2-Gim" kind="show" id="GpQ-DR-lvx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="myCollectionView" destination="gFF-ge-feJ" id="0aK-t1-vdx"/>
                         <segue destination="1LX-CC-Mec" kind="show" identifier="detailsSegue" id="0Wz-Ze-BBx"/>
@@ -198,7 +206,26 @@
             </objects>
             <point key="canvasLocation" x="1668" y="1039.4302848575712"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Cart-->
+        <scene sceneID="j8S-94-6Yw">
+            <objects>
+                <viewController id="jOL-I2-Gim" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="anb-E6-SCJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="2UT-xT-sLF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zfb-pb-bWr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cart" id="GVm-rt-ywE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hQP-Em-WZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1668" y="1900"/>
+        </scene>
+        <!--Details-->
         <scene sceneID="tOF-xK-ZMW">
             <objects>
                 <viewController id="1LX-CC-Mec" customClass="detailsViewController" customModule="MobileAppProject" customModuleProvider="target" sceneMemberID="viewController">
@@ -211,32 +238,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D5W-I7-eA3">
-                                <rect key="frame" x="16" y="82" width="113" height="149"/>
+                                <rect key="frame" x="16" y="111" width="113" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wym-5h-c8r">
-                                <rect key="frame" x="137" y="210" width="70" height="21"/>
+                                <rect key="frame" x="137" y="239" width="70" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRm-se-NeD">
-                                <rect key="frame" x="137" y="82" width="37" height="21"/>
+                                <rect key="frame" x="137" y="111" width="37" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="S9i-Pw-Xfe">
+                                <rect key="frame" x="265" y="235" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="stepperPressed:" destination="1LX-CC-Mec" eventType="valueChanged" id="e1k-GS-PF3"/>
+                                </connections>
+                            </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzg-UZ-iKj">
-                                <rect key="frame" x="215" y="210" width="48" height="21"/>
+                                <rect key="frame" x="215" y="239" width="48" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$---" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZY0-Ge-jya">
-                                <rect key="frame" x="16" y="259" width="34" height="21"/>
+                                <rect key="frame" x="16" y="288" width="34" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -264,9 +298,12 @@
                                 <state key="normal" title="Add to cart">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addToCartPressed:" destination="1LX-CC-Mec" eventType="touchUpInside" id="THQ-Bh-Q3a"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eq0-yq-0FA">
-                                <rect key="frame" x="147" y="113" width="187" height="87"/>
+                                <rect key="frame" x="147" y="142" width="187" height="87"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="1LX-CC-Mec" id="esD-Zw-zh4"/>
@@ -274,7 +311,7 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="select your size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xr-AF-WBn">
-                                <rect key="frame" x="181" y="82" width="119" height="21"/>
+                                <rect key="frame" x="181" y="111" width="119" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -288,17 +325,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="S9i-Pw-Xfe">
-                                <rect key="frame" x="265" y="206" width="94" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ra-Ex-lZn">
+                                <rect key="frame" x="16" y="82" width="133" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="stepperPressed:" destination="1LX-CC-Mec" eventType="valueChanged" id="e1k-GS-PF3"/>
-                                </connections>
-                            </stepper>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Details" id="gxr-5z-FGe">
+                        <barButtonItem key="rightBarButtonItem" title="Cart" id="Nmr-Ru-VEu">
+                            <connections>
+                                <segue destination="jOL-I2-Gim" kind="show" id="SnJ-v7-UnJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="descLabel" destination="B5C-B4-1v0" id="NN7-Ld-0ce"/>
+                        <outlet property="imageView" destination="D5W-I7-eA3" id="OwM-9e-vAg"/>
+                        <outlet property="nameLabel" destination="4ra-Ex-lZn" id="0zv-Us-atd"/>
+                        <outlet property="priceLabel" destination="ZY0-Ge-jya" id="wgD-gF-r1D"/>
                         <outlet property="quantityLabel" destination="gzg-UZ-iKj" id="js8-Bc-CtX"/>
                         <outlet property="quantityStepper" destination="S9i-Pw-Xfe" id="9Yg-Br-krb"/>
                         <outlet property="sizeLabel" destination="4Xr-AF-WBn" id="pse-YD-8Zh"/>
@@ -432,5 +480,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qte-8F-Y3L"/>
+        <segue reference="GpQ-DR-lvx"/>
     </inferredMetricsTieBreakers>
 </document>
