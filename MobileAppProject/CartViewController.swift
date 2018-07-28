@@ -26,6 +26,19 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
         let index = indexPath.row
         cell.textLabel?.text = Cart[index].name
+        
+        if(Cart[index].picture != ""){
+            let url = URL(string: Cart[index].picture)
+            let data = try? Data(contentsOf: url!)
+            
+            if let imageData = data {
+                let image = UIImage(data: imageData)
+                  cell.imageView?.image = image
+            }
+        }
+        cell.imageView?.image = UIImage(named: "Login.png")
+
+      
         return (cell)
         
     }
