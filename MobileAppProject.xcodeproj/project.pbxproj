@@ -13,7 +13,8 @@
 		835506D72107C14800626059 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835506D62107C14800626059 /* SignupViewController.swift */; };
 		835506D921080AD000626059 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835506D821080AD000626059 /* ListViewController.swift */; };
 		835CE1BD210CD128001D2874 /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835CE1BC210CD128001D2874 /* detailsViewController.swift */; };
-		835CE1BF210D08DF001D2874 /* ShoppingCartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835CE1BE210D08DF001D2874 /* ShoppingCartModel.swift */; };
+		835CE1BF210D08DF001D2874 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835CE1BE210D08DF001D2874 /* CartModel.swift */; };
+		835CE1C1210D1759001D2874 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835CE1C0210D1759001D2874 /* CartViewController.swift */; };
 		83AB4BFF20FE930A0029E5BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AB4BFE20FE930A0029E5BE /* AppDelegate.swift */; };
 		83AB4C0120FE930A0029E5BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AB4C0020FE930A0029E5BE /* ViewController.swift */; };
 		83AB4C0420FE930A0029E5BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83AB4C0220FE930A0029E5BE /* Main.storyboard */; };
@@ -37,7 +38,8 @@
 		835506D62107C14800626059 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		835506D821080AD000626059 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		835CE1BC210CD128001D2874 /* detailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
-		835CE1BE210D08DF001D2874 /* ShoppingCartModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingCartModel.swift; sourceTree = "<group>"; };
+		835CE1BE210D08DF001D2874 /* CartModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
+		835CE1C0210D1759001D2874 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		83AB4BFB20FE930A0029E5BE /* MobileAppProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAppProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83AB4BFE20FE930A0029E5BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83AB4C0020FE930A0029E5BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,8 +108,9 @@
 				83FF8971210C19640055B61A /* collectionViewController.swift */,
 				83FF897E210C1D240055B61A /* myCell.swift */,
 				835CE1BC210CD128001D2874 /* detailsViewController.swift */,
+				835CE1BE210D08DF001D2874 /* CartModel.swift */,
+				835CE1C0210D1759001D2874 /* CartViewController.swift */,
 				83FF8973210C1B140055B61A /* pictures */,
-				835CE1BE210D08DF001D2874 /* ShoppingCartModel.swift */,
 			);
 			path = MobileAppProject;
 			sourceTree = "<group>";
@@ -295,9 +298,10 @@
 				83AB4BFF20FE930A0029E5BE /* AppDelegate.swift in Sources */,
 				83FF897F210C1D240055B61A /* myCell.swift in Sources */,
 				83AB4C0720FE930A0029E5BE /* MobileAppProject.xcdatamodeld in Sources */,
+				835CE1C1210D1759001D2874 /* CartViewController.swift in Sources */,
 				835CE1BD210CD128001D2874 /* detailsViewController.swift in Sources */,
 				83FF8972210C19640055B61A /* collectionViewController.swift in Sources */,
-				835CE1BF210D08DF001D2874 /* ShoppingCartModel.swift in Sources */,
+				835CE1BF210D08DF001D2874 /* CartModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
