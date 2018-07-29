@@ -60,8 +60,8 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
     // https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
     func listMajors() {
         output.text = "Getting sheet data..."
-        let spreadsheetId = "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
-        let range = "Class Data!A2:E"
+        let spreadsheetId = "1jaq8lbnpRzXpoHbpunj3YTwv-qxqBvvLKAVzvob8YZo"
+        let range = "Sheet1!A2:E"
         let query = GTLRSheetsQuery_SpreadsheetsValuesGet
             .query(withSpreadsheetId: spreadsheetId, range:range)
         service.executeQuery(query,
@@ -92,9 +92,9 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
         majorsString += "Name, Major:\n"
         for row in rows {
             let name = row[0]
-            let major = row[4]
             
-            majorsString += "\(name), \(major)\n"
+            
+            majorsString += "\(name)\n"
         }
         
         output.text = majorsString
