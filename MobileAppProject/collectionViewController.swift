@@ -11,8 +11,9 @@ import UIKit
 class collectionViewController: UIViewController, UICollectionViewDataSource , UICollectionViewDelegate{
     @IBOutlet weak var myCollectionView: UICollectionView!
     
-    let array: [String] = ["http://gdurl.com/tBNY","2.jpg","3.jpeg", "4.jpg", "5.jpeg","1.jpg","2.jpg","3.jpeg", "4.jpg", "5.jpeg","1.jpg","2.jpg","3.jpeg", "4.jpg", "5.jpeg"]
+    //let array: [String] = ["http://gdurl.com/tBNY","2.jpg","3.jpeg", "4.jpg", "5.jpeg","1.jpg","2.jpg","3.jpeg", "4.jpg", "5.jpeg","1.jpg","2.jpg","3.jpeg", "4.jpg", "5.jpeg"]
     
+    var Shirts: [ShirtItem]?
     var selectedPicture = ""
     var selectedName = ""
     var selectedPrice = ""
@@ -39,14 +40,17 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
         layout.minimumLineSpacing = 3
         
         myCollectionView.collectionViewLayout = layout
-             
+        
+        let MyModel = ShirtsModel.sharedInstance
+        MyModel.fetchShirts()
+        Shirts = MyModel.getShirts()
         
     }
     
     
     //number of views
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return array.count
+        return Shirts!.count
     }
     
     //populate views
@@ -55,7 +59,7 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! myCell
         
-        let url = URL(string: array[indexPath.row])
+        let url = URL(string: (Shirts?[indexPath.row].picture)!)
         let data = try? Data(contentsOf: url!)
         
         if let imageData = data {
@@ -63,7 +67,7 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
             cell.myImageView.image = image
         }else{
             
-            cell.myImageView.image = UIImage(named: array[indexPath.row])
+            //cell.myImageView.image = UIImage(named: Shirts[indexPath.row])
         }
         
         return cell
@@ -71,11 +75,11 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        //selectedPicture = results[indexPath.row].picture
-        //selectedName = results[indexPath.row].name
-        //selectedPrice = results[indexPath.row].price
-        //selectedDesc = results[indexPath.row].desc
-        //selectedId = results[indexPath.row].id
+        selectedPicture = (Shirts?[indexPath.row].picture)!
+        selectedName = (Shirts?[indexPath.row].name)!
+        selectedPrice = (Shirts?[indexPath.row].price)!
+        selectedDesc = (Shirts?[indexPath.row].desc)!
+        selectedId = (Shirts?[indexPath.row].id)!
         
         self.performSegue(withIdentifier: "detailsSegue", sender: self);
         
@@ -85,11 +89,11 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
         
         if(segue.identifier == "detailsSegue"){
             let DetailsController = segue.destination as! detailsViewController
-            // DetailsController.tshirtID = selectedId
-            // DetailsController.tshirtPictureURL = selectedPicture
-            // DetailsController.tshirtName = selectedPicture
-            // DetailsController.tshirtPrice = selectedPicture
-            // DetailsController.tshirtDescription = selectedPicture
+             DetailsController.tshirtID = selectedId
+             DetailsController.tshirtPictureURL = selectedPicture
+             DetailsController.tshirtName = selectedName
+             DetailsController.tshirtPrice = selectedPrice
+             DetailsController.tshirtDescription = selectedDesc
             
         }
     }

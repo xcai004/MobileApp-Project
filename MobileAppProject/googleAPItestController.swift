@@ -5,9 +5,9 @@ import UIKit
 class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
     //@IBOutlet var signInButton: GIDSignInButton!
-   // @IBAction func signInPressed(_ sender: Any) {
-   //     GIDSignIn.sharedInstance().signIn()
-   // }
+    // @IBAction func signInPressed(_ sender: Any) {
+    //     GIDSignIn.sharedInstance().signIn()
+    // }
     // If modifying these scopes, delete your previously saved credentials by
     
     // resetting the iOS simulator or uninstall the app.
@@ -26,8 +26,8 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
         GIDSignIn.sharedInstance().scopes = scopes
         GIDSignIn.sharedInstance().clientID = "195890102482-ko027i6i30cghhc0ahn1nke51vue59ps.apps.googleusercontent.com"
         //test
-        //self.service.authorizer = GIDSignIn.sharedInstance().currentUser.userID
-        GIDSignIn.sharedInstance().signInSilently()
+        //    self.service.authorizer = GIDSignIn.sharedInstance().currentUser.userID
+        GIDSignIn.sharedInstance().signIn()
         
         // Add the sign-in button.
         //view.addSubview(signInButton)
@@ -55,13 +55,11 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
         }
     }
     
-    // Display (in the UITextView) the names and majors of students in a sample
-    // spreadsheet:
-    // https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+    
     func listMajors() {
         output.text = "Getting sheet data..."
-        let spreadsheetId = "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
-        let range = "Class Data!A2:E"
+        let spreadsheetId = "1jaq8lbnpRzXpoHbpunj3YTwv-qxqBvvLKAVzvob8YZo"
+        let range = "A2:E6"
         let query = GTLRSheetsQuery_SpreadsheetsValuesGet
             .query(withSpreadsheetId: spreadsheetId, range:range)
         service.executeQuery(query,
@@ -81,7 +79,7 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
             return
         }
         
-        var majorsString = ""
+        //var majorsString = ""
         let rows = result.values!
         
         if rows.isEmpty {
@@ -89,15 +87,22 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
             return
         }
         
-        majorsString += "Name, Major:\n"
+        let MyModel = ShirtsModel.sharedInstance
+        
         for row in rows {
-            let name = row[0]
-            let major = row[4]
             
-            majorsString += "\(name), \(major)\n"
+            let name = row[0] as! String
+            let id = row[1] as! String
+            let price = row[2] as! String
+            let desc = row[3] as! String
+            let picture = row[4] as! String
+            
+            MyModel.addShirt(price: price, name: name, id: id, picture: picture, desc: desc)
+            
+
         }
         
-        output.text = majorsString
+       output.text = "Done...."
     }
     
     

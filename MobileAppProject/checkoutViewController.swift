@@ -16,11 +16,6 @@ class checkoutViewController : UIViewController {
         
         
         
-        
- 
-        
-        
-        
     }
     
     

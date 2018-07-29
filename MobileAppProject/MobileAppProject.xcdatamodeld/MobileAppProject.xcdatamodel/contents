@@ -7,7 +7,15 @@
         <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Shirts" representedClassName="Shirts" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="picture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Cart" positionX="-54" positionY="-9" width="128" height="120"/>
+        <element name="Shirts" positionX="-54" positionY="27" width="128" height="120"/>
     </elements>
 </model>

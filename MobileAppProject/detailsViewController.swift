@@ -93,6 +93,13 @@ class detailsViewController : UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func addToCartPressed(_ sender: Any) {
         
+        
+        
+        let MyModel = CartModel.sharedInstance
+        
+        
+        
+        
         let alert = UIAlertController(title: "Success", message: "Item succesfully added to cart", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in
             alert.dismiss(animated: true, completion: nil)
