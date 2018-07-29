@@ -90,6 +90,7 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
         let MyModel = ShirtsModel.sharedInstance
         
         for row in rows {
+            let name = row[0]
             
             let name = row[0] as! String
             let id = row[1] as! String
