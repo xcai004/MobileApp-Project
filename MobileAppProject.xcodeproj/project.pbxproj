@@ -29,6 +29,7 @@
 		83FF897D210C1B140055B61A /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 83FF8978210C1B140055B61A /* 3.jpeg */; };
 		83FF897F210C1D240055B61A /* myCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF897E210C1D240055B61A /* myCell.swift */; };
 		F3FEA615210D2261006CF360 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3FEA614210D2261006CF360 /* GoogleService-Info.plist */; };
+		F3FEA617210D4476006CF360 /* googleAPItestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FEA616210D4476006CF360 /* googleAPItestController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		83FF897E210C1D240055B61A /* myCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myCell.swift; sourceTree = "<group>"; };
 		A7486BF0210C260CE69EB341 /* Pods-MobileAppProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAppProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileAppProject/Pods-MobileAppProject.debug.xcconfig"; sourceTree = "<group>"; };
 		F3FEA614210D2261006CF360 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F3FEA616210D4476006CF360 /* googleAPItestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = googleAPItestController.swift; sourceTree = "<group>"; };
 		FF35DCD431E823C4BD574AC9 /* Pods_MobileAppProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileAppProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 				83AB4C0220FE930A0029E5BE /* Main.storyboard */,
 				835506D42107B34700626059 /* Login.png */,
 				833705182107934E006E3256 /* LoginViewController.swift */,
+				F3FEA616210D4476006CF360 /* googleAPItestController.swift */,
 				83AB4C0820FE930A0029E5BE /* Assets.xcassets */,
 				83AB4C0A20FE930A0029E5BE /* LaunchScreen.storyboard */,
 				83AB4C0D20FE930A0029E5BE /* Info.plist */,
@@ -294,6 +297,7 @@
 				833705192107934E006E3256 /* LoginViewController.swift in Sources */,
 				83AB4C0120FE930A0029E5BE /* ViewController.swift in Sources */,
 				835506D921080AD000626059 /* ListViewController.swift in Sources */,
+				F3FEA617210D4476006CF360 /* googleAPItestController.swift in Sources */,
 				835506D72107C14800626059 /* SignupViewController.swift in Sources */,
 				83AB4BFF20FE930A0029E5BE /* AppDelegate.swift in Sources */,
 				83FF897F210C1D240055B61A /* myCell.swift in Sources */,

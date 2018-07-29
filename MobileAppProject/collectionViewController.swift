@@ -19,6 +19,8 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
     var selectedDesc = ""
     var selectedId = ""
     
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,8 +39,7 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
         layout.minimumLineSpacing = 3
         
         myCollectionView.collectionViewLayout = layout
-        
-        
+             
         
     }
     

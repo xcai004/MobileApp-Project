@@ -1,5 +1,4 @@
 
-
 import Foundation
 import UIKit
 
@@ -28,7 +27,11 @@ class LoginViewController: UIViewController {
         GuestButton.setTitleColor(UIColor.white, for: .normal)
         
         
+        
     }
+    
+   
+    
     @IBAction func LoginPressed(_ sender: Any) {
         //
         print("Tapped")
