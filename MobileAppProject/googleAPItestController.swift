@@ -27,7 +27,8 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
         GIDSignIn.sharedInstance().clientID = "195890102482-ko027i6i30cghhc0ahn1nke51vue59ps.apps.googleusercontent.com"
         //test
         //    self.service.authorizer = GIDSignIn.sharedInstance().currentUser.userID
-        GIDSignIn.sharedInstance().signIn()
+        //GIDSignIn.sharedInstance().signIn()
+        listMajors()
         
         // Add the sign-in button.
         //view.addSubview(signInButton)
@@ -57,6 +58,7 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
     
     
     func listMajors() {
+        self.service.apiKey = "AIzaSyBhuRrWGpxGUy-2Clkqqz0yA9wgz5jXw3Y"
         output.text = "Getting sheet data..."
         let spreadsheetId = "1jaq8lbnpRzXpoHbpunj3YTwv-qxqBvvLKAVzvob8YZo"
         let range = "A2:E6"
@@ -90,7 +92,7 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
         let MyModel = ShirtsModel.sharedInstance
         
         for row in rows {
-            let name = row[0]
+            //let name = row[0]
             
             let name = row[0] as! String
             let id = row[1] as! String
