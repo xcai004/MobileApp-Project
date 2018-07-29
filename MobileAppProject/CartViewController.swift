@@ -14,6 +14,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
    let MyModel = CartModel.sharedInstance
     var Cart: [CartItem] = []
 
+
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

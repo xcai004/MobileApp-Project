@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5FAAB401ECA703F01A076DD1 /* Pods_MobileAppProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF35DCD431E823C4BD574AC9 /* Pods_MobileAppProject.framework */; };
+		830320EB210E39BF00A37ABA /* checkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830320EA210E39BF00A37ABA /* checkoutViewController.swift */; };
+		830320ED210E40D400A37ABA /* OrderReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830320EC210E40D400A37ABA /* OrderReviewController.swift */; };
 		833705192107934E006E3256 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833705182107934E006E3256 /* LoginViewController.swift */; };
 		835506D52107B34700626059 /* Login.png in Resources */ = {isa = PBXBuildFile; fileRef = 835506D42107B34700626059 /* Login.png */; };
 		835506D72107C14800626059 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835506D62107C14800626059 /* SignupViewController.swift */; };
@@ -34,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		78F1BE0C1639A1B7048C3E10 /* Pods-MobileAppProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAppProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileAppProject/Pods-MobileAppProject.release.xcconfig"; sourceTree = "<group>"; };
+		830320EA210E39BF00A37ABA /* checkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = checkoutViewController.swift; sourceTree = "<group>"; };
+		830320EC210E40D400A37ABA /* OrderReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderReviewController.swift; sourceTree = "<group>"; };
 		833705182107934E006E3256 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		835506D42107B34700626059 /* Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Login.png; path = ../../../Login.png; sourceTree = "<group>"; };
 		835506D62107C14800626059 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				835CE1BC210CD128001D2874 /* detailsViewController.swift */,
 				835CE1BE210D08DF001D2874 /* CartModel.swift */,
 				835CE1C0210D1759001D2874 /* CartViewController.swift */,
+				830320EA210E39BF00A37ABA /* checkoutViewController.swift */,
+				830320EC210E40D400A37ABA /* OrderReviewController.swift */,
 				83FF8973210C1B140055B61A /* pictures */,
 			);
 			path = MobileAppProject;
@@ -294,7 +300,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				830320EB210E39BF00A37ABA /* checkoutViewController.swift in Sources */,
 				833705192107934E006E3256 /* LoginViewController.swift in Sources */,
+				830320ED210E40D400A37ABA /* OrderReviewController.swift in Sources */,
 				83AB4C0120FE930A0029E5BE /* ViewController.swift in Sources */,
 				835506D921080AD000626059 /* ListViewController.swift in Sources */,
 				F3FEA617210D4476006CF360 /* googleAPItestController.swift in Sources */,
