@@ -16,33 +16,14 @@ class GoogleAPIViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure Google Sign-in.
-        GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().scopes = scopes
-        GIDSignIn.sharedInstance().clientID = "195890102482-ko027i6i30cghhc0ahn1nke51vue59ps.apps.googleusercontent.com"
-        //test
-        //    self.service.authorizer = GIDSignIn.sharedInstance().currentUser.userID
-        //GIDSignIn.sharedInstance().signIn()
-        listMajors()
-        
-        // Add the sign-in button.
-        //view.addSubview(signInButton)
-        
-        // Add a UITextView to display output.
-        output.frame = view.bounds
-        output.isEditable = false
-        output.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        output.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        output.isHidden = true
-        view.addSubview(output);
-    }
+        progress.startAnimating()
+        getSheetData()
     
         
     }
-    
-    
-    func listMajors() {
+
+    func getSheetData() {
+        
         self.service.apiKey = "AIzaSyBhuRrWGpxGUy-2Clkqqz0yA9wgz5jXw3Y"
         output.text = "Getting sheet data..."
         let spreadsheetId = "1jaq8lbnpRzXpoHbpunj3YTwv-qxqBvvLKAVzvob8YZo"
