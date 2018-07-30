@@ -33,11 +33,10 @@ class checkoutViewController : UIViewController, UITextFieldDelegate {
         orderDetailsTextField.text = ""
         var total = 0.0;
         for cartItem in cart {
-            var price = (Double(cartItem.price)! * Double(cartItem.quantity)!)
+            let price = (Double(cartItem.price)! * Double(cartItem.quantity)!)
             total = total + price
             let text = cartItem.name + " " + cartItem.size + ": x" + cartItem.quantity + " $" + String(price) + "\n"
             orderDetailsTextField.text = orderDetailsTextField.text + text
-            
         }
         
         totalLabel.text = "$" + String(total)
@@ -85,6 +84,23 @@ class checkoutViewController : UIViewController, UITextFieldDelegate {
         // Present the controller
         self.present(alertController, animated: true, completion: nil)
         
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+        if segue.identifier == "submitSegue" {
+           let reviewPage = segue.destination as! OrderReviewController
+            
+            var reviewText = "Phone: " + phoneTextField.text! + "\n"
+            reviewText += "Name: " + nameTextField.text! + "\n"
+            reviewText += "Address: " + addressTextField.text! + "\n"
+            reviewText += orderDetailsTextField.text + "\n" + "Total: " + totalLabel.text!
+            
+            reviewPage.details =  reviewText
+        
+            
+        }
         
     }
     

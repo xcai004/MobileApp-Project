@@ -142,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gFF-ge-feJ">
-                                <rect key="frame" x="0.0" y="85" width="375" height="582"/>
+                                <rect key="frame" x="0.0" y="41" width="375" height="626"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QOb-AU-xsw">
                                     <size key="itemSize" width="100" height="100"/>
@@ -386,10 +386,10 @@
             </objects>
             <point key="canvasLocation" x="1453.5999999999999" y="1822.9385307346329"/>
         </scene>
-        <!--View Controller-->
+        <!--Order Review Controller-->
         <scene sceneID="nrc-M9-o3n">
             <objects>
-                <viewController id="Hwc-4q-v6V" sceneMemberID="viewController">
+                <viewController id="Hwc-4q-v6V" customClass="OrderReviewController" customModule="MobileAppProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pRd-f9-Sfy"/>
                         <viewControllerLayoutGuide type="bottom" id="eIp-bA-XXg"/>
@@ -405,15 +405,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNo-gb-gNe">
-                                <rect key="frame" x="137" y="182" width="101" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Order Details:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNo-gb-gNe">
+                                <rect key="frame" x="137" y="182" width="106" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yt0-um-4iV">
-                                <rect key="frame" x="135" y="295" width="104" height="30"/>
+                                <rect key="frame" x="140" y="364" width="104" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Finish">
@@ -423,13 +423,23 @@
                                     <segue destination="xt3-Gv-TLN" kind="show" id="Pl7-Q1-NQY"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WLr-OU-7bp">
+                                <rect key="frame" x="72" y="221" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="detailsTextView" destination="WLr-OU-7bp" id="2iv-tx-lMU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJL-OR-PqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2247" y="1822"/>
+            <point key="canvasLocation" x="2245.5999999999999" y="1821.1394302848578"/>
         </scene>
         <!--Details-->
         <scene sceneID="tOF-xK-ZMW">
@@ -669,7 +679,7 @@
             <objects>
                 <navigationController id="Ecv-Sl-JFp" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="frN-jM-VWv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -685,9 +695,9 @@
         <image name="Login.png" width="529" height="529"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SnJ-v7-UnJ"/>
         <segue reference="1Yy-qE-Q8x"/>
-        <segue reference="7Md-X1-0QM"/>
+        <segue reference="SnJ-v7-UnJ"/>
+        <segue reference="Pl7-Q1-NQY"/>
         <segue reference="yBg-Ud-2Wc"/>
     </inferredMetricsTieBreakers>
 </document>

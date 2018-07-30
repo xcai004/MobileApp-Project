@@ -105,10 +105,7 @@ class detailsViewController : UIViewController, UIPickerViewDelegate, UIPickerVi
         MyModel.addToCart(price: price!, name: name!, size: size!, picture: picture, quantity: quantity!, id: id )
         
         
-        var alertText = name! + " "
-        alertText += quantity! + " "
-        alertText += size! + " "
-        alertText += "\nItem succesfully added to cart"
+        var alertText = "Item succesfully added to cart"
         
         let alert = UIAlertController(title: "Success", message:  alertText, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in
