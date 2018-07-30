@@ -16,15 +16,41 @@ class checkoutViewController : UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        let MyModel = CartModel.sharedInstance
+        let cart = MyModel.getCart()
+        orderDetailsTextField.text = ""
+        for cartItem in cart {
+            
+            orderDetailsTextField.text = orderDetailsTextField.text + cartItem.name + "\n"
+            
+        }
         
     }
     
     
     @IBAction func submitPressed(_ sender: Any) {
+        
+        
+        
+        if (phoneTextField.text == "" || nameTextField.text == "" || addressTextField.text == "")
+        {
+            
+            let alert = UIAlertController(title: "Error", message: "Please fill in your name, address and phone number", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        
+        }
+        
         
         // Create the alert controller
         let alertController = UIAlertController(title: "Checkout", message: "Are you sure you want to submit this order?", preferredStyle: .alert)

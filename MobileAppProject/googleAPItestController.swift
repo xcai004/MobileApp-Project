@@ -3,7 +3,7 @@ import GoogleSignIn
 import GTMOAuth2
 import UIKit
 
-class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
+class GoogleAPIViewController: UIViewController{
     
     // If modifying these scopes, delete your previously saved credentials by
     
@@ -11,53 +11,18 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
     
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
     private let service = GTLRSheetsService()
-    let signInButton = GIDSignInButton()
-    let output = UITextView()
-    private let kKeychainItemName = "Google Sheets API"
-    private let kClientID = "195890102482-ko027i6i30cghhc0ahn1nke51vue59ps.apps.googleusercontent.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure Google Sign-in.
-        GIDSignIn.sharedInstance().delegate = self
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().scopes = scopes
-        GIDSignIn.sharedInstance().clientID = "195890102482-ko027i6i30cghhc0ahn1nke51vue59ps.apps.googleusercontent.com"
-        
-        GIDSignIn.sharedInstance().signIn()
-        
-        // Add a UITextView to display output.
-        output.frame = view.bounds
-        output.isEditable = false
-        output.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        output.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        output.isHidden = true
-        view.addSubview(output);
-        
-        
+        getSheetData()
+    
         
     }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
-              withError error: Error!) {
-        if let error = error {
-            showAlert(title: "Authentication Error", message: error.localizedDescription)
-            self.service.authorizer = nil
-        } else {
-            print(user.authentication.fetcherAuthorizer())
-            self.signInButton.isHidden = true
-            self.output.isHidden = false
-            self.service.authorizer = user.authentication.fetcherAuthorizer()
-            print("Sing in Success!")
-            listMajors()
-        }
-    }
-    
-    
-    func listMajors() {
+
+    func getSheetData() {
         
-        output.text = "Getting sheet data..."
+        self.service.apiKey = "AIzaSyBhuRrWGpxGUy-2Clkqqz0yA9wgz5jXw3Y"
         let spreadsheetId = "1jaq8lbnpRzXpoHbpunj3YTwv-qxqBvvLKAVzvob8YZo"
         let range = "A2:E6"
         let query = GTLRSheetsQuery_SpreadsheetsValuesGet
@@ -84,7 +49,6 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
         let rows = result.values!
         
         if rows.isEmpty {
-            output.text = "No data found."
             return
         }
         // REFRESH DATA FROM SHEETS ; clear current data and add all the data from the sheets
@@ -104,8 +68,6 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
             
             
         }
-        
-        output.text = "Done...."
         
         self.performSegue(withIdentifier: "shirtsSegue", sender: self)
     }
