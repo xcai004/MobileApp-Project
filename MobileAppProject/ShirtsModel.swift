@@ -12,7 +12,7 @@ class ShirtsModel {
     
     private init ()
     {
-       // fetchShirts()
+       
     }
     
     public func fetchShirts(){
@@ -95,6 +95,12 @@ class ShirtsModel {
         
     }
     
+    public func getShirtById(id: String) -> ShirtItem {
+        
+        return Shirts.first(where: { $0.id == id })!
+        
+    }
+    
     public func clearData(){
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Shirts")
@@ -113,6 +119,7 @@ class ShirtsModel {
         }
     }
 }
+
 
 struct ShirtItem { // struct for contact
     

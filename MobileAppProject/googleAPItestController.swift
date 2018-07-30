@@ -12,9 +12,11 @@ class GoogleAPIViewController: UIViewController{
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
     private let service = GTLRSheetsService()
     
+    @IBOutlet weak var progress: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        progress.startAnimating()
         getSheetData()
     
         
@@ -24,7 +26,7 @@ class GoogleAPIViewController: UIViewController{
         
         self.service.apiKey = "AIzaSyBhuRrWGpxGUy-2Clkqqz0yA9wgz5jXw3Y"
         let spreadsheetId = "1jaq8lbnpRzXpoHbpunj3YTwv-qxqBvvLKAVzvob8YZo"
-        let range = "A2:E6"
+        let range = "A2:E11"
         let query = GTLRSheetsQuery_SpreadsheetsValuesGet
             .query(withSpreadsheetId: spreadsheetId, range:range)
         

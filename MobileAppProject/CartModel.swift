@@ -12,7 +12,7 @@ class CartModel {
     
     private init ()
     {
-        fetchCart()
+    
     }
     
     public func fetchCart(){
@@ -33,7 +33,8 @@ class CartModel {
                         name: (result.value(forKey: "name") as? String)!,
                         price: (result.value(forKey: "price") as? String)!,
                         size: (result.value(forKey: "size") as? String)!,
-                        quantity: (result.value(forKey: "quantity") as? String)!
+                        quantity: (result.value(forKey: "quantity") as? String)!,
+                        id: (result.value(forKey: "id") as? String)!
                     ))
                 }
             }
@@ -57,7 +58,7 @@ class CartModel {
         return Cart
     }
     
-    public func addToCart(price: String, name: String, size: String, picture: String, quantity: String){
+    public func addToCart(price: String, name: String, size: String, picture: String, quantity: String, id: String){
     
         let newCartItem = NSEntityDescription.insertNewObject(forEntityName: "Cart", into: context)
         
@@ -66,6 +67,7 @@ class CartModel {
         newCartItem.setValue(size, forKey: "size")
         newCartItem.setValue(picture, forKey: "picture")
         newCartItem.setValue(quantity, forKey: "quantity")
+        newCartItem.setValue(id, forKey: "id")
 
         do{
             try context.save()
@@ -109,4 +111,5 @@ struct CartItem { // struct for contact
     var price: String
     var size: String
     var quantity: String
+    var id: String
 }

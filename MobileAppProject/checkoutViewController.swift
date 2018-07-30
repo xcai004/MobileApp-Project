@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class checkoutViewController : UIViewController {
+class checkoutViewController : UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var orderDetailsTextField: UITextView!
     
@@ -17,7 +17,13 @@ class checkoutViewController : UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     
+    @IBOutlet weak var totalLabel: UILabel!
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +31,16 @@ class checkoutViewController : UIViewController {
         let MyModel = CartModel.sharedInstance
         let cart = MyModel.getCart()
         orderDetailsTextField.text = ""
+        var total = 0.0;
         for cartItem in cart {
-            
-            orderDetailsTextField.text = orderDetailsTextField.text + cartItem.name + "\n"
+            var price = (Double(cartItem.price)! * Double(cartItem.quantity)!)
+            total = total + price
+            let text = cartItem.name + " " + cartItem.size + ": x" + cartItem.quantity + " $" + String(price) + "\n"
+            orderDetailsTextField.text = orderDetailsTextField.text + text
             
         }
+        
+        totalLabel.text = "$" + String(total)
         
     }
     

@@ -21,10 +21,8 @@ class detailsViewController : UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var nameLabel: UILabel!
     
     var tshirtID: String = ""
-    var tshirtName: String = ""
-    var tshirtPictureURL: String = ""
-    var tshirtPrice: String = ""
-    var tshirtDescription: String = ""
+    var pictureURL = ""
+
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -34,34 +32,22 @@ class detailsViewController : UIViewController, UIPickerViewDelegate, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         
-        
-        if(tshirtPictureURL != ""){
-            let url = URL(string: tshirtPictureURL)
+        if(tshirtID != ""){
+            
+            let Shirt = ShirtsModel.sharedInstance.getShirtById(id: tshirtID)
+            nameLabel.text = Shirt.name
+            priceLabel.text = Shirt.price
+            descLabel.text = Shirt.desc
+            pictureURL = Shirt.picture
+            let url = URL(string: pictureURL)
             let data = try? Data(contentsOf: url!)
             
             if let imageData = data {
                 let image = UIImage(data: imageData)
                 imageView.image = image
-            }else{
-                
             }
-        }
-        
-        if(tshirtName != ""){
-            nameLabel.text = tshirtName
-        }
-        
-        if(tshirtPrice != ""){
-            priceLabel.text = tshirtPrice
-        }
-        
-        if(tshirtDescription != ""){
-            descLabel.text = tshirtDescription
-        }
-        
-        if(tshirtID != ""){
+            
             
         }
         
@@ -98,10 +84,11 @@ class detailsViewController : UIViewController, UIPickerViewDelegate, UIPickerVi
         let MyModel = CartModel.sharedInstance
         
         let size = sizeLabel.text
-        let picture = tshirtPictureURL
+        let picture = pictureURL
         let quantity = quantityLabel.text
-        let price = tshirtPrice
-        let name = tshirtName
+        let price = priceLabel.text
+        let name = nameLabel.text
+        let id = tshirtID
         
         
         if size == "select your size" || quantity == "0" {
@@ -115,10 +102,10 @@ class detailsViewController : UIViewController, UIPickerViewDelegate, UIPickerVi
             return
         }
         
-        MyModel.addToCart(price: price, name: name, size: size!, picture: picture, quantity: quantity!)
+        MyModel.addToCart(price: price!, name: name!, size: size!, picture: picture, quantity: quantity!, id: id )
         
         
-        var alertText = name + " "
+        var alertText = name! + " "
         alertText += quantity! + " "
         alertText += size! + " "
         alertText += "\nItem succesfully added to cart"
