@@ -17,6 +17,8 @@ class CartModel {
     
     public func fetchCart(){
         
+        Cart.removeAll()
+        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
         request.returnsObjectsAsFaults = false;
         
@@ -25,6 +27,7 @@ class CartModel {
             
             if results.count > 0 {
                 for result in results as! [NSManagedObject] {
+                    
                     Cart.append(CartItem(
                         picture: (result.value(forKey: "picture") as? String)!,
                         name: (result.value(forKey: "name") as? String)!,

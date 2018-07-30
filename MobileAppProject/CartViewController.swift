@@ -15,8 +15,6 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var Cart: [CartItem] = []
 
 
-    
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MyModel.listCount()
     }
@@ -26,7 +24,16 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
         let index = indexPath.row
-        cell.textLabel?.text = Cart[index].name
+        let price = Double(Cart[index].price)
+        let quantity = Double((Cart[index].quantity))
+        let total = price! * quantity!
+        //let price = 0
+        let name = Cart[index].name + " "
+        let size = Cart[index].size + " "
+        let quantityText = Cart[index].quantity + " "
+        let text = name + size + quantityText + "$" + String(total)
+        
+        cell.textLabel?.text = text
         
         if(Cart[index].picture != ""){
             let url = URL(string: Cart[index].picture)
@@ -37,7 +44,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
                   cell.imageView?.image = image
             }
         }
-        cell.imageView?.image = UIImage(named: "Login.png")
+        //cell.imageView?.image = UIImage(named: "Login.png")
 
       
         return (cell)
@@ -48,7 +55,8 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         Cart = MyModel.getCart()
+        MyModel.fetchCart()
+        Cart = MyModel.getCart()
         
     }
 }

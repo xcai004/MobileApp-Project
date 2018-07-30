@@ -97,10 +97,33 @@ class detailsViewController : UIViewController, UIPickerViewDelegate, UIPickerVi
         
         let MyModel = CartModel.sharedInstance
         
+        let size = sizeLabel.text
+        let picture = tshirtPictureURL
+        let quantity = quantityLabel.text
+        let price = tshirtPrice
+        let name = tshirtName
         
         
+        if size == "select your size" || quantity == "0" {
+            
+            let alert = UIAlertController(title: "Error", message: "Please select size and quantity before adding to cart", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
         
-        let alert = UIAlertController(title: "Success", message: "Item succesfully added to cart", preferredStyle: UIAlertControllerStyle.alert)
+        MyModel.addToCart(price: price, name: name, size: size!, picture: picture, quantity: quantity!)
+        
+        
+        var alertText = name + " "
+        alertText += quantity! + " "
+        alertText += size! + " "
+        alertText += "\nItem succesfully added to cart"
+        
+        let alert = UIAlertController(title: "Success", message:  alertText, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in
             alert.dismiss(animated: true, completion: nil)
             _ = self.navigationController?.popViewController(animated: true)
