@@ -31,6 +31,7 @@
 		83FF897C210C1B140055B61A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83FF8977210C1B140055B61A /* 1.jpg */; };
 		83FF897D210C1B140055B61A /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 83FF8978210C1B140055B61A /* 3.jpeg */; };
 		83FF897F210C1D240055B61A /* myCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF897E210C1D240055B61A /* myCell.swift */; };
+		F376566E210EBA0600011138 /* SmtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F376566D210EBA0600011138 /* SmtpViewController.swift */; };
 		F3FEA615210D2261006CF360 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3FEA614210D2261006CF360 /* GoogleService-Info.plist */; };
 		F3FEA617210D4476006CF360 /* googleAPItestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FEA616210D4476006CF360 /* googleAPItestController.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		83FF8978210C1B140055B61A /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
 		83FF897E210C1D240055B61A /* myCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myCell.swift; sourceTree = "<group>"; };
 		A7486BF0210C260CE69EB341 /* Pods-MobileAppProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAppProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileAppProject/Pods-MobileAppProject.debug.xcconfig"; sourceTree = "<group>"; };
+		F376566D210EBA0600011138 /* SmtpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmtpViewController.swift; sourceTree = "<group>"; };
+		F376566F210EBBC400011138 /* sendEmail_bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sendEmail_bridge.h; sourceTree = "<group>"; };
 		F3FEA614210D2261006CF360 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3FEA616210D4476006CF360 /* googleAPItestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = googleAPItestController.swift; sourceTree = "<group>"; };
 		FF35DCD431E823C4BD574AC9 /* Pods_MobileAppProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileAppProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +126,8 @@
 				830320EA210E39BF00A37ABA /* checkoutViewController.swift */,
 				830320EC210E40D400A37ABA /* OrderReviewController.swift */,
 				83FF8973210C1B140055B61A /* pictures */,
+				F376566D210EBA0600011138 /* SmtpViewController.swift */,
+				F376566F210EBBC400011138 /* sendEmail_bridge.h */,
 			);
 			path = MobileAppProject;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				83AB4C0120FE930A0029E5BE /* ViewController.swift in Sources */,
 				835506D921080AD000626059 /* ListViewController.swift in Sources */,
 				F3FEA617210D4476006CF360 /* googleAPItestController.swift in Sources */,
+				F376566E210EBA0600011138 /* SmtpViewController.swift in Sources */,
 				835506D72107C14800626059 /* SignupViewController.swift in Sources */,
 				83AB4BFF20FE930A0029E5BE /* AppDelegate.swift in Sources */,
 				83FF897F210C1D240055B61A /* myCell.swift in Sources */,
@@ -444,10 +450,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 87DCMNX24K;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"${PODS_ROOT}/Google/Headers",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/Google\"",
+					"\"${PODS_ROOT}/Headers/Public/mailcore2-ios\"",
+					"\"${PODS_ROOT}/Headers/Public/mailcore2-ios/MailCore\"",
+				);
 				INFOPLIST_FILE = MobileAppProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chris.MobileAppProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/MobileAppProject/sendEmail_bridge.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -458,10 +476,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 87DCMNX24K;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"${PODS_ROOT}/Google/Headers",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/Google\"",
+					"\"${PODS_ROOT}/Headers/Public/mailcore2-ios\"",
+					"\"${PODS_ROOT}/Headers/Public/mailcore2-ios/MailCore\"",
+				);
 				INFOPLIST_FILE = MobileAppProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Chris.MobileAppProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/MobileAppProject/sendEmail_bridge.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

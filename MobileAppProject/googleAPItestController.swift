@@ -25,7 +25,7 @@ class GoogleAPIViewController: UIViewController{
     func getSheetData() {
         
         self.service.apiKey = "AIzaSyBhuRrWGpxGUy-2Clkqqz0yA9wgz5jXw3Y"
-        output.text = "Getting sheet data..."
+        //output.text = "Getting sheet data..."
         let spreadsheetId = "1jaq8lbnpRzXpoHbpunj3YTwv-qxqBvvLKAVzvob8YZo"
         let range = "A2:E11"
         let query = GTLRSheetsQuery_SpreadsheetsValuesGet
