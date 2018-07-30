@@ -14,6 +14,9 @@ class OrderReviewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        CartModel.sharedInstance.clearCart()
     }
     
     

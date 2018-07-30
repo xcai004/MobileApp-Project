@@ -1,22 +1,18 @@
 import GoogleAPIClientForREST
 import GoogleSignIn
+import GTMOAuth2
 import UIKit
 
-class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
+class GoogleAPIViewController: UIViewController{
     
-    //@IBOutlet var signInButton: GIDSignInButton!
-    // @IBAction func signInPressed(_ sender: Any) {
-    //     GIDSignIn.sharedInstance().signIn()
-    // }
     // If modifying these scopes, delete your previously saved credentials by
     
     // resetting the iOS simulator or uninstall the app.
+    
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
-    
     private let service = GTLRSheetsService()
-    let signInButton = GIDSignInButton()
-    let output = UITextView()
     
+    @IBOutlet weak var progress: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,18 +38,7 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
         view.addSubview(output);
     }
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
-              withError error: Error!) {
-        if let error = error {
-            showAlert(title: "Authentication Error", message: error.localizedDescription)
-            self.service.authorizer = nil
-        } else {
-            self.signInButton.isHidden = true
-            self.output.isHidden = false
-            self.service.authorizer = user.authentication.fetcherAuthorizer()
-            print("Sing in Success!")
-            listMajors()
-        }
+        
     }
     
     
@@ -61,9 +46,10 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
         self.service.apiKey = "AIzaSyBhuRrWGpxGUy-2Clkqqz0yA9wgz5jXw3Y"
         output.text = "Getting sheet data..."
         let spreadsheetId = "1jaq8lbnpRzXpoHbpunj3YTwv-qxqBvvLKAVzvob8YZo"
-        let range = "A2:E6"
+        let range = "A2:E11"
         let query = GTLRSheetsQuery_SpreadsheetsValuesGet
             .query(withSpreadsheetId: spreadsheetId, range:range)
+        
         service.executeQuery(query,
                              delegate: self,
                              didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:))
@@ -85,11 +71,13 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
         let rows = result.values!
         
         if rows.isEmpty {
-            output.text = "No data found."
             return
         }
-        
+        // REFRESH DATA FROM SHEETS ; clear current data and add all the data from the sheets
         let MyModel = ShirtsModel.sharedInstance
+        MyModel.clearData()
+        let MyCartModel = CartModel.sharedInstance
+        MyCartModel.clearCart()
         
         for row in rows {
             //let name = row[0]
@@ -102,10 +90,10 @@ class GoogleAPIViewController: UIViewController, GIDSignInDelegate, GIDSignInUID
             
             MyModel.addShirt(price: price, name: name, id: id, picture: picture, desc: desc)
             
-
+            
         }
         
-       output.text = "Done...."
+        self.performSegue(withIdentifier: "shirtsSegue", sender: self)
     }
     
     

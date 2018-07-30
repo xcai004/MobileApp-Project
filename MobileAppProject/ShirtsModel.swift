@@ -12,7 +12,7 @@ class ShirtsModel {
     
     private init ()
     {
-       // fetchShirts()
+       
     }
     
     public func fetchShirts(){
@@ -95,7 +95,31 @@ class ShirtsModel {
         
     }
     
+    public func getShirtById(id: String) -> ShirtItem {
+        
+        return Shirts.first(where: { $0.id == id })!
+        
+    }
+    
+    public func clearData(){
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Shirts")
+        request.returnsObjectsAsFaults = false;
+        
+        do{
+            let results = try context.fetch(request)
+            
+            if results.count > 0 {
+                for result in results as! [NSManagedObject] {
+                  context.delete(result)                }
+            }
+            
+        }catch {
+            // process errors here
+        }
+    }
 }
+
 
 struct ShirtItem { // struct for contact
     

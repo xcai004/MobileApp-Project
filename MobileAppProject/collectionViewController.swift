@@ -75,10 +75,10 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        selectedPicture = (Shirts?[indexPath.row].picture)!
-        selectedName = (Shirts?[indexPath.row].name)!
-        selectedPrice = (Shirts?[indexPath.row].price)!
-        selectedDesc = (Shirts?[indexPath.row].desc)!
+//        selectedPicture = (Shirts?[indexPath.row].picture)!
+//        selectedName = (Shirts?[indexPath.row].name)!
+//        selectedPrice = (Shirts?[indexPath.row].price)!
+//        selectedDesc = (Shirts?[indexPath.row].desc)!
         selectedId = (Shirts?[indexPath.row].id)!
         
         self.performSegue(withIdentifier: "detailsSegue", sender: self);
@@ -90,10 +90,10 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
         if(segue.identifier == "detailsSegue"){
             let DetailsController = segue.destination as! detailsViewController
              DetailsController.tshirtID = selectedId
-             DetailsController.tshirtPictureURL = selectedPicture
-             DetailsController.tshirtName = selectedName
-             DetailsController.tshirtPrice = selectedPrice
-             DetailsController.tshirtDescription = selectedDesc
+//             DetailsController.tshirtPictureURL = selectedPicture
+//             DetailsController.tshirtName = selectedName
+//             DetailsController.tshirtPrice = selectedPrice
+//             DetailsController.tshirtDescription = selectedDesc
             
         }
     }

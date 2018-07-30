@@ -27,7 +27,6 @@ class LoginViewController: UIViewController {
         GuestButton.setTitleColor(UIColor.white, for: .normal)
         
         
-        
     }
     
    
