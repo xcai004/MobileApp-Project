@@ -4,9 +4,11 @@ import CoreData
 import UIKit
 
 class CartModel {
-    
+    //Holds all items in order
     private var Cart:[CartItem] = []
+    //Create Context object to access/save Order info
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     static let sharedInstance = CartModel()
     // create one instance of this class
     
@@ -15,16 +17,19 @@ class CartModel {
     
     }
     
+    //Get Order infor from CoreData
     public func fetchCart(){
         
-        Cart.removeAll()
+        Cart.removeAll() //Ensure cart is empty Before adding from CoreData
         
+        //Create request
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
         request.returnsObjectsAsFaults = false;
         
         do{
-            let results = try context.fetch(request)
+            let results = try context.fetch(request) //Execute request
             
+            //Turn results into CartItems
             if results.count > 0 {
                 for result in results as! [NSManagedObject] {
                     
@@ -45,6 +50,7 @@ class CartModel {
         
     }
     
+    //Getter for count of items in cart
     public func listCount() -> Int {
         if Cart.count > 0{
             return Cart.count
@@ -53,11 +59,13 @@ class CartModel {
         }
     }
     
+    //Getter for array of items in cart
     public func getCart() -> [CartItem] {
         
         return Cart
     }
     
+    //Setter for adding items to cart
     public func addToCart(price: String, name: String, size: String, picture: String, quantity: String, id: String){
     
         let newCartItem = NSEntityDescription.insertNewObject(forEntityName: "Cart", into: context)
@@ -78,10 +86,13 @@ class CartModel {
         
     }
     
+    
+    //FUTURE-Edite cart items
     public func updateCartItem(){
     
     }
-    
+
+    //Clear cart from CoreData if cancel/order submission
     public func clearCart()
     {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
