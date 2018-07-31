@@ -10,16 +10,18 @@ import Foundation
 import UIKit
 
 class checkoutViewController : UIViewController, UITextFieldDelegate {
-    
+
+
+    //Acess user input text field
     @IBOutlet weak var orderDetailsTextField: UITextView!
-    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     
+    //Display order total
     @IBOutlet weak var totalLabel: UILabel!
     
-    
+    //Dismiss keyboard after user pressed enter
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -31,18 +33,32 @@ class checkoutViewController : UIViewController, UITextFieldDelegate {
         nameTextField.delegate = self
         phoneTextField.delegate = self
         addressTextField.delegate = self
-        
+
+        //Create cart singleton
         let MyModel = CartModel.sharedInstance
+        
+        //used to access items in order.
         let cart = MyModel.getCart()
+
+        //Ensure text field is initialized to empty string
         orderDetailsTextField.text = ""
-        var total = 0.0;
+        var total = 0.0;  //Holds total price of order
+        
+        //Go through items and get/prepare information for orderDetail text
         for cartItem in cart {
+            //Get the price of each item
             let price = (Double(cartItem.price)! * Double(cartItem.quantity)!)
+            
+            //Add price to previous running total
             total = total + price
+
+            //Create item string
             let text = cartItem.name + " " + cartItem.size + ": x" + cartItem.quantity + " $" + String(price) + "\n"
+            
+            //add item string to previous items
             orderDetailsTextField.text = orderDetailsTextField.text + text
         }
-        
+        //Display order total
         totalLabel.text = "$" + String(total)
         
     }
@@ -54,10 +70,10 @@ class checkoutViewController : UIViewController, UITextFieldDelegate {
     @IBAction func submitPressed(_ sender: Any) {
         
         
-        
+        //Simple empty string validation
         if (phoneTextField.text == "" || nameTextField.text == "" || addressTextField.text == "")
         {
-            
+            //one of the textField's is empty. Display error
             let alert = UIAlertController(title: "Error", message: "Please fill in your name, address and phone number", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action) in
                 alert.dismiss(animated: true, completion: nil)
@@ -68,6 +84,7 @@ class checkoutViewController : UIViewController, UITextFieldDelegate {
         
         }
         
+        //Text Field validation completed successfully ask User to validate order submission
         
         // Create the alert controller
         let alertController = UIAlertController(title: "Checkout", message: "Are you sure you want to submit this order?", preferredStyle: .alert)
@@ -93,7 +110,8 @@ class checkoutViewController : UIViewController, UITextFieldDelegate {
         
         
     }
-    
+
+    //Send order information to OrderReviewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
         if segue.identifier == "submitSegue" {
