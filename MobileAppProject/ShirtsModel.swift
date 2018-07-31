@@ -5,8 +5,12 @@ import UIKit
 
 class ShirtsModel {
     
+    //holds all shirt items retrived by fetch request
     private var Shirts:[ShirtItem] = []
+    
+    //Prepare the Context to access CoreData
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     static let sharedInstance = ShirtsModel()
     // create one instance of this class
     
@@ -16,13 +20,15 @@ class ShirtsModel {
     }
     
     public func fetchShirts(){
-        
+        //Prepare the request from the context.
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Shirts")
-        request.returnsObjectsAsFaults = false;
-        Shirts.removeAll()
+        request.returnsObjectsAsFaults = false; //do not retrive failed items
+        
+        Shirts.removeAll() //Clear previous results
         do{
-            let results = try context.fetch(request)
+            let results = try context.fetch(request)  //execute the request
             
+            //Turn result into shirt objects
             if results.count > 0 {
                 for result in results as! [NSManagedObject] {
                     Shirts.append(ShirtItem(
@@ -41,6 +47,7 @@ class ShirtsModel {
         
     }
     
+    //Getter size of items
     public func listCount() -> Int {
         if Shirts.count > 0{
             return Shirts.count
@@ -49,11 +56,13 @@ class ShirtsModel {
         }
     }
     
+    //Getter for items array.
     public func getShirts() -> [ShirtItem] {
         
         return Shirts
     }
     
+    //Setter for adding new items
     public func addShirt(price: String, name: String, id: String, picture: String, desc: String){
         
         // first check if shirt already exists
@@ -95,12 +104,14 @@ class ShirtsModel {
         
     }
     
+    //Getter from detailsViewController
     public func getShirtById(id: String) -> ShirtItem {
         
         return Shirts.first(where: { $0.id == id })!
         
     }
     
+    // used to update the inventory items from Google Sheets DB. Delete current inventory entries.
     public func clearData(){
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Shirts")
