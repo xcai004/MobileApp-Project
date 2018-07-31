@@ -11,7 +11,7 @@ import UIKit
 
 class SignupViewController: UIViewController {
     @IBOutlet weak var SignupButton: UIButton!
-    
+    // connect the UIbottons and textfield
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var username: UITextField!
@@ -20,12 +20,13 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        // style of the button
         SignupButton.backgroundColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
         SignupButton.setTitleColor(UIColor.white, for: .normal)
         
         
     }
+    // test the action of the button
     @IBAction func SignupPressed(_ sender: Any) {
         //
         print("Tapped")
