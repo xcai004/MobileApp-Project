@@ -4,7 +4,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    
+    //connect the button and textfield
     @IBOutlet weak var LoginButton: UIButton!
     @IBOutlet weak var SignupButton: UIButton!
     @IBOutlet weak var GuestButton: UIButton!
@@ -17,6 +17,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        
+        
+        //change button style
 //        LoginButton.backgroundColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
 //        LoginButton.setTitleColor(UIColor.white, for: .normal)
 //        
@@ -30,7 +35,7 @@ class LoginViewController: UIViewController {
     }
     
    
-    
+    // test the action of buttons
     @IBAction func LoginPressed(_ sender: Any) {
         //
         print("Tapped")

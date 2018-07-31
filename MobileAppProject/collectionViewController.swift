@@ -12,7 +12,7 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
     @IBOutlet weak var myCollectionView: UICollectionView!
     
     //let array: [String] = ["http://gdurl.com/tBNY","2.jpg","3.jpeg", "4.jpg", "5.jpeg","1.jpg","2.jpg","3.jpeg", "4.jpg", "5.jpeg","1.jpg","2.jpg","3.jpeg", "4.jpg", "5.jpeg"]
-    
+    // create variable of selectedPictures, name, price, decs and ID
     var Shirts: [ShirtItem]?
     var selectedPicture = ""
     var selectedName = ""
@@ -27,11 +27,12 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
         
         //        // remove left buttons (in case you added some)
         //        self.navigationItem.leftBarButtonItems = []
-        //        // hide the default back buttons
+        
+        // hide the default back buttons
         self.navigationItem.hidesBackButton = true
-        
+        // twp picture in one row
         let itemSize = UIScreen.main.bounds.width/2 - 3
-        
+        // set the layout of the pictures
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsetsMake(20, 0, 10, 0)
         layout.itemSize = CGSize(width: itemSize, height: itemSize)
@@ -40,7 +41,7 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
         layout.minimumLineSpacing = 3
         
         myCollectionView.collectionViewLayout = layout
-        
+        // get the items from the model
         let MyModel = ShirtsModel.sharedInstance
         MyModel.fetchShirts()
         Shirts = MyModel.getShirts()
@@ -72,7 +73,7 @@ class collectionViewController: UIViewController, UICollectionViewDataSource , U
         
         return cell
     }
-    
+    // get tshirt details to the details view by the tshirt ID
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
 //        selectedPicture = (Shirts?[indexPath.row].picture)!
