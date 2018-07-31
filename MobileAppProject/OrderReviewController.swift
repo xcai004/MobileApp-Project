@@ -38,8 +38,8 @@ class OrderReviewController : UIViewController {
         let to:MCOAddress = MCOAddress(displayName: nil, mailbox: "xcai004@fiu.edu")
         builder.header.from = from
         builder.header.to = [to]
-        builder.header.subject = "My Messgae"
-        builder.htmlBody = "This is test message"
+        builder.header.subject = "ORDER CONFIRMATION - ID: 0001"
+        builder.htmlBody = details
         let rcf822Data = builder.data()
         let sendOperation:MCOSMTPSendOperation = smtpSession.sendOperation(with: rcf822Data)
         sendOperation.start { (error) -> Void in

@@ -17,15 +17,15 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        LoginButton.backgroundColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
-        LoginButton.setTitleColor(UIColor.white, for: .normal)
-        
-        SignupButton.backgroundColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
-        SignupButton.setTitleColor(UIColor.white, for: .normal)
-        
-        GuestButton.backgroundColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
-        GuestButton.setTitleColor(UIColor.white, for: .normal)
-        
+//        LoginButton.backgroundColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
+//        LoginButton.setTitleColor(UIColor.white, for: .normal)
+//        
+//        SignupButton.backgroundColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
+//        SignupButton.setTitleColor(UIColor.white, for: .normal)
+//        
+//        GuestButton.backgroundColor = UIColor(red:0.00, green:0.60, blue:1.00, alpha:1.0)
+//        GuestButton.setTitleColor(UIColor.white, for: .normal)
+//        
         
     }
     

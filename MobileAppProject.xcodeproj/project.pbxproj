@@ -12,7 +12,6 @@
 		830320ED210E40D400A37ABA /* OrderReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830320EC210E40D400A37ABA /* OrderReviewController.swift */; };
 		830320EF210E5B3D00A37ABA /* ShirtsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830320EE210E5B3D00A37ABA /* ShirtsModel.swift */; };
 		833705192107934E006E3256 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833705182107934E006E3256 /* LoginViewController.swift */; };
-		834549BB210EC53E002DE428 /* SmtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834549BA210EC53E002DE428 /* SmtpViewController.swift */; };
 		835506D52107B34700626059 /* Login.png in Resources */ = {isa = PBXBuildFile; fileRef = 835506D42107B34700626059 /* Login.png */; };
 		835506D72107C14800626059 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835506D62107C14800626059 /* SignupViewController.swift */; };
 		835506D921080AD000626059 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835506D821080AD000626059 /* ListViewController.swift */; };
@@ -43,7 +42,6 @@
 		830320EE210E5B3D00A37ABA /* ShirtsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShirtsModel.swift; sourceTree = "<group>"; };
 		833705182107934E006E3256 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		834549B9210EC53E002DE428 /* sendEmail_bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sendEmail_bridge.h; sourceTree = "<group>"; };
-		834549BA210EC53E002DE428 /* SmtpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmtpViewController.swift; sourceTree = "<group>"; };
 		834549BC210EC582002DE428 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GTMSessionFetcher.framework; path = "../../../Library/Developer/Xcode/DerivedData/MobileAppProject-cmdcizvpveelcufafyhzgbycjdhe/Build/Products/Debug-iphonesimulator/GTMSessionFetcher/GTMSessionFetcher.framework"; sourceTree = "<group>"; };
 		835506D42107B34700626059 /* Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Login.png; path = ../../../Login.png; sourceTree = "<group>"; };
 		835506D62107C14800626059 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				835506D62107C14800626059 /* SignupViewController.swift */,
 				83AB4C0020FE930A0029E5BE /* ViewController.swift */,
 				834549B9210EC53E002DE428 /* sendEmail_bridge.h */,
-				834549BA210EC53E002DE428 /* SmtpViewController.swift */,
 				835506D821080AD000626059 /* ListViewController.swift */,
 				83AB4C0220FE930A0029E5BE /* Main.storyboard */,
 				835506D42107B34700626059 /* Login.png */,
@@ -311,7 +308,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				830320EB210E39BF00A37ABA /* checkoutViewController.swift in Sources */,
-				834549BB210EC53E002DE428 /* SmtpViewController.swift in Sources */,
 				833705192107934E006E3256 /* LoginViewController.swift in Sources */,
 				830320ED210E40D400A37ABA /* OrderReviewController.swift in Sources */,
 				83AB4C0120FE930A0029E5BE /* ViewController.swift in Sources */,

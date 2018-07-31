@@ -28,6 +28,10 @@ class checkoutViewController : UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nameTextField.delegate = self
+        phoneTextField.delegate = self
+        addressTextField.delegate = self
+        
         let MyModel = CartModel.sharedInstance
         let cart = MyModel.getCart()
         orderDetailsTextField.text = ""
@@ -42,6 +46,9 @@ class checkoutViewController : UIViewController, UITextFieldDelegate {
         totalLabel.text = "$" + String(total)
         
     }
+    
+
+
     
     
     @IBAction func submitPressed(_ sender: Any) {

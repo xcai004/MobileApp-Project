@@ -19,7 +19,7 @@ class ShirtsModel {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Shirts")
         request.returnsObjectsAsFaults = false;
-        
+        Shirts.removeAll()
         do{
             let results = try context.fetch(request)
             
