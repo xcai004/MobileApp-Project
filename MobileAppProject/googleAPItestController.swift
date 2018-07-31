@@ -6,30 +6,41 @@ import UIKit
 class GoogleAPIViewController: UIViewController{
     
     // If modifying these scopes, delete your previously saved credentials by
-    
     // resetting the iOS simulator or uninstall the app.
     
+    //Scope is how to access the Sheet, read only, write
     private let scopes = [kGTLRAuthScopeSheetsSpreadsheetsReadonly]
+    
+    //Service is which google service to access.
     private let service = GTLRSheetsService()
     
+    //Outlet Display progress of retriving new inventory.
     @IBOutlet weak var progress: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        progress.startAnimating()
-        getSheetData()
+        progress.startAnimating() //Start progress Activity
+        getSheetData()            //Retrieve items from GSheets
     
         
     }
-
+    //
     func getSheetData() {
-        
+        //API Key neeeded by request to access GSheets without user login. Sheet must be shared via link
         self.service.apiKey = "AIzaSyBhuRrWGpxGUy-2Clkqqz0yA9wgz5jXw3Y"
+        
+        //ID can be retrived from the URL of the GSheet
         let spreadsheetId = "1jaq8lbnpRzXpoHbpunj3YTwv-qxqBvvLKAVzvob8YZo"
+        
+        //Cells to retrive. Set to a large enough scope to accomodate future additions
         let range = "A2:E11"
+        
+        //Build the Query
         let query = GTLRSheetsQuery_SpreadsheetsValuesGet
             .query(withSpreadsheetId: spreadsheetId, range:range)
         
+        //Execute the query
         service.executeQuery(query,
                              delegate: self,
                              didFinish: #selector(displayResultWithTicket(ticket:finishedWithObject:error:))
@@ -37,7 +48,7 @@ class GoogleAPIViewController: UIViewController{
         
     }
     
-    // Process the response and display output
+    // Process the response From Query and add items
     func displayResultWithTicket(ticket: GTLRServiceTicket,
                                  finishedWithObject result : GTLRSheets_ValueRange,
                                  error : NSError?) {
